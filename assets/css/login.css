@@ -1,0 +1,26 @@
+.formulario{
+    max-width: 600px;
+    background: #212529;
+    margin: 30px auto;
+    padding: 30px;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+}
+button{
+    margin-top: 20px;
+    width: 300px;
+}
+.boton{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+@media (max-width: 400px ) {
+    .formulario{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+  
+}
+

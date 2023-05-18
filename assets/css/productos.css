@@ -1,0 +1,75 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.botones{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.registrar{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.boton{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+@media (min-width: 1000px ) {
+    form{
+        display: grid;
+        grid: repeat(5,1fr)/repeat(2,1fr);
+        grid-template-areas: 
+        "uno dos"
+        "tres cuatro"
+        "cinco seis"
+        "siete ocho"
+        "nueve nueve";
+        font-weight: bold;
+    }
+    .campos{
+        padding: 5px;
+    }
+    .campos:nth-child(1){
+        grid-area: uno;
+    }
+    .campos:nth-child(2){
+        grid-area: dos;
+    }
+    .campos:nth-child(3){
+        grid-area: tres;
+    }
+    .campos:nth-child(4){
+        grid-area: cuatro;
+    }
+    .campos:nth-child(5){
+        grid-area: cinco;
+    }
+    .campos:nth-child(6){
+        grid-area: seis;
+    }
+    .campos:nth-child(7){
+        grid-area: siete;
+    }
+    .campos:nth-child(8){
+        grid-area: ocho;
+    }
+    .campos:nth-child(9){
+        grid-area: nueve;
+    }
+    .boton1{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+    .btn1{
+        margin-left: 5px;
+        width: 250px;
+        height: 50px;
+    }
+    
+}
+
+

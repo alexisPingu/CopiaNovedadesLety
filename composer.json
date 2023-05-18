@@ -1,0 +1,24 @@
+{
+    "name": "www.novedadeslety.com/tienda-online",
+    "description": "creacion de una tienda de regalos online",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexis Uriel Martinez Cruz",
+            "email": "alexisurielmartinezcruz385@gmail.com"
+        },
+        {
+            "name": "Tenyo Emanuel Petrearce Pineda",
+            "email": "tenyo@gmail.com"
+        }
+    ],
+    "require": {
+        
+    },
+    "autoload": {
+        "psr-4": {
+            "novedadeslety\\":"src/"
+        }
+    }
+}
