@@ -99,5 +99,51 @@ $pdf->Cell(40,8,"$ ".$cliente["Total pedido"],1,0,'C',0);
 
    
 
-$pdf->Output();
+
+
+$ruta='C:\\Users\\alexi\\OneDrive\\Escritorio\\'.$idPedido.'.pdf';
+$pdf->Output($ruta,'F');
+
+//require 'vendor/autoload.php'; // If you're using Composer (recommended)
+// Comment out the above line if not using Composer
+// require("<PATH TO>/sendgrid-php.php");
+// If not using Composer, uncomment the above line and
+// download sendgrid-php.zip from the latest release here,
+// replacing <PATH TO> with the path to the sendgrid-php.php file,
+// which is included in the download:
+// https://github.com/sendgrid/sendgrid-php/releases
+
+$email = new \SendGrid\Mail\Mail();
+$email->setFrom("L201923150@jilotepec.tecnm.mx", "Novedadeslety");
+$email->setSubject("Gracias pro su compra");
+$email->addTo($cliente['Correo'], "Example User");
+// $email->addContent("text/plain", "and easy to do anywhere, even with PHP");
+// Crear una tabla HTML con los detalles de la compra
+// [clave] => 7622210546296 [producto] => Funda audifonos   [precio] => 90 [cantidad] => 1
+// Crear una tabla HTML con los detalles de la compra
+// Agregar el contenido HTML al correo
+//$email->addContent("text/plain", "and easy to do anywhere, even with PHP");
+$email->addContent(
+    "text/html", "<strong>and easy to do anywhere, even with PHP</strong>"
+);
+// Adjunta el archivo PDF
+$fileContent = file_get_contents($ruta);
+$attachment = new \SendGrid\Mail\Attachment();
+$attachment->setContent(base64_encode($fileContent));
+$attachment->setType("application/pdf");
+$attachment->setFilename("factura.pdf");
+$attachment->setDisposition("attachment");
+$email->addAttachment($attachment);
+
+$sendgrid = new \SendGrid('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');
+try {
+    $response = $sendgrid->send($email);
+   /* print $response->statusCode() . "\n";
+    print_r($response->headers());
+    print $response->body() . "\n";*/
+} catch (Exception $e) {
+    echo 'Caught exception: ' . $e->getMessage() . "\n";
+}
+header("location: ../panel/pedidos/index.php");
+
 ?>
