@@ -135,7 +135,7 @@ $attachment->setFilename("factura.pdf");
 $attachment->setDisposition("attachment");
 $email->addAttachment($attachment);
 
-$sendgrid = new \SendGrid('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');
+
 try {
     $response = $sendgrid->send($email);
    /* print $response->statusCode() . "\n";
